@@ -35,38 +35,28 @@ export default {
         collapsed: true,
         items: [
           { text: 'VS Code', link: '/tools/vscode' },
-          { text: 'Git', link: '/tools/git' },
-          { text: 'Docker', link: '/tools/docker' },
-          { text: 'Webpack', link: '/tools/webpack' }
+          { text: 'Git', link: '/tools/git' }
         ]
       },
       {
         text: '🌐 Web技术',
         collapsed: true,
         items: [
-          { text: 'HTML/CSS', link: '/web/html-css' },
-          { text: '响应式设计', link: '/web/responsive' },
-          { text: 'WebAPI', link: '/web/webapi' },
-          { text: '性能优化', link: '/web/performance' }
+          { text: 'HTML/CSS', link: '/web/html-css' }
         ]
       },
       {
         text: '📚 学习笔记',
         collapsed: true,
         items: [
-          { text: '算法', link: '/notes/algorithms' },
-          { text: '数据结构', link: '/notes/data-structures' },
-          { text: '设计模式', link: '/notes/design-patterns' },
-          { text: '系统设计', link: '/notes/system-design' }
+          { text: '算法', link: '/notes/algorithms' }
         ]
       },
       {
         text: '🔧 项目实战',
         collapsed: true,
         items: [
-          { text: '博客系统', link: '/projects/blog' },
-          { text: '后台管理', link: '/projects/admin' },
-          { text: '移动应用', link: '/projects/mobile' }
+          { text: '博客系统', link: '/projects/blog' }
         ]
       }
     ],
