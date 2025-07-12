@@ -16,10 +16,15 @@
 
 ![LCP 良好值](https://web.dev/static/articles/lcp/image/good-lcp-values.svg?hl=zh-cn)
 
-### TBT
+### 总屏蔽时间TBT
 
 ### 累积布局偏移CLS
 
 ![CLS 良好值](https://web.dev/static/articles/cls/image/good-cls-values.svg?hl=zh-cn)
 
 ### 累积布局偏移SI
+
+### INP
+
+替代FID
+![INP 良好值](https://web.dev/static/articles/inp/image/inp-desktop-v2.svg?hl=zh-cn)

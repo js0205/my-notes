@@ -27,10 +27,22 @@ export default {
         ]
       },
       {
+        text: '📦 打包工具',
+        collapsed: false,
+        items: [
+          { text: 'Rspack', link: '/pack/rspack' },
+          { text: 'Vite', link: '/pack/vite' },
+          { text: 'Webpack', link: '/pack/webpack' },
+        ]
+      },
+      {
         text: '🔧 技术栈',
         collapsed: false,
         items: [
           { text: 'Node.js', link: '/tech-stack/nodejs' },
+          { text: 'BFF', link: '/tech-stack/bff' },
+          { text: 'Egg', link: '/tech-stack/egg' },
+          { text: 'Koa', link: '/tech-stack/koa' },
           { text: 'Cocos渲染', link: '/tech-stack/cocos-render' },
           { text: '微前端', link: '/tech-stack/microfrontend' },
           { text: 'WebAssembly', link: '/tech-stack/webassembly' },
@@ -48,6 +60,7 @@ export default {
         collapsed: false,
         items: [
           { text: 'D2C', link: '/aicoding/d2c' },
+          { text: 'SSE', link: '/aicoding/sse' },
         ]
       }
     ],
