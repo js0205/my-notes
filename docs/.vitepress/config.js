@@ -27,10 +27,13 @@ export default {
         ]
       },
       {
-        text: '⚡ 服务端',
+        text: '🔧 技术栈',
         collapsed: false,
         items: [
-          { text: 'nodejs', link: '/server/nodejs' },
+          { text: 'Node.js', link: '/tech-stack/nodejs' },
+          { text: 'Cocos渲染', link: '/tech-stack/cocos-render' },
+          { text: '微前端', link: '/tech-stack/microfrontend' },
+          { text: 'WebAssembly', link: '/tech-stack/webassembly' },
         ]
       },
       {
@@ -38,6 +41,13 @@ export default {
         collapsed: false,
         items: [
           { text: 'ssr', link: '/ssr/ssr' },
+        ]
+      },
+      {
+        text: '🤖 AiCoding',
+        collapsed: false,
+        items: [
+          { text: 'D2C', link: '/aicoding/d2c' },
         ]
       }
     ],
