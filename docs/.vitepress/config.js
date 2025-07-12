@@ -12,12 +12,12 @@ export default {
         text: '🚀 性能优化',
         collapsed: false,
         items: [
-            { text: '性能优化思路(总分总)', link: '/performance/outline' },
             { text: '性能指标', link: '/performance/performance' },
             { text: '低端机降级', link: '/performance/low-end-machine-downgrade' },
             { text: '离线包', link: '/performance/offline-package' },
             { text: '页面卡顿', link: '/performance/page-stutter' },
-            { text:'白屏',link:'/performance/white-screen'}
+            { text: '白屏', link: '/performance/white-screen' },
+            { text: '大纲', link: '/performance/outline' }
         ]
       },
       {
@@ -26,7 +26,8 @@ export default {
         items: [
           { text: '图片压缩', link: '/conversion/image-compression' },
           { text: '视频', link: '/conversion/video' },
-          { text: 'PDF极速预览', link: '/conversion/pdf-preview' },
+          { text: 'PDF预览', link: '/conversion/pdf-preview' },
+          { text: 'iframe', link: '/conversion/iframe' }
         ]
       },
       {
@@ -49,7 +50,7 @@ export default {
           { text: 'Cocos渲染', link: '/tech-stack/cocos-render' },
           { text: '微前端', link: '/tech-stack/microfrontend' },
           { text: 'WebAssembly', link: '/tech-stack/webassembly' },
-          { text: 'SEO', link: '/tech-stack/seo' },
+          { text: 'SEO', link: '/tech-stack/seo' }
         ]
       },
       {
