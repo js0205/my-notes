@@ -14,7 +14,8 @@ export default {
         items: [
             { text: '性能指标', link: '/performance/performance' },
             { text: '低端机降级', link: '/performance/low-end-machine-downgrade' },
-            { text: '离线包', link: '/performance/offline-package' }
+            { text: '离线包', link: '/performance/offline-package' },
+            { text: '页面卡顿', link: '/performance/page-stutter' }
         ]
       },
       {
