@@ -5,64 +5,29 @@ export default {
   
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
-      { text: '关于', link: '/about' }
+      { text: '首页', link: '/' }
     ],
-    
     sidebar: [
       {
-        text: '🚀 快速开始',
+        text: '🚀 性能优化',
         collapsed: false,
         items: [
-          { text: '介绍', link: '/guide/introduction' },
-          { text: '快速开始', link: '/guide/getting-started' },
-          { text: '安装配置', link: '/guide/installation' }
+            { text: '性能指标', link: '/performance/performance' },
+            { text: '低端机降级', link: '/performance/low-end-machine-downgrade' },
+            { text: '离线包', link: '/performance/offline-package' }
         ]
       },
       {
-        text: '💻 编程技术',
+        text: '💻 文件格式转换',
         collapsed: false,
         items: [
-          { text: 'JavaScript', link: '/programming/javascript' },
-          { text: 'TypeScript', link: '/programming/typescript' },
-          { text: 'Vue.js', link: '/programming/vue' },
-          { text: 'React', link: '/programming/react' },
-          { text: 'Node.js', link: '/programming/nodejs' }
-        ]
-      },
-      {
-        text: '🛠️ 开发工具',
-        collapsed: true,
-        items: [
-          { text: 'VS Code', link: '/tools/vscode' },
-          { text: 'Git', link: '/tools/git' }
-        ]
-      },
-      {
-        text: '🌐 Web技术',
-        collapsed: true,
-        items: [
-          { text: 'HTML/CSS', link: '/web/html-css' }
-        ]
-      },
-      {
-        text: '📚 学习笔记',
-        collapsed: true,
-        items: [
-          { text: '算法', link: '/notes/algorithms' }
-        ]
-      },
-      {
-        text: '🔧 项目实战',
-        collapsed: true,
-        items: [
-          { text: '博客系统', link: '/projects/blog' }
+          { text: '图片压缩', link: '/conversion/image-compression' },
+          { text: '视频', link: '/conversion/video' },
         ]
       }
     ],
-    
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/js0205' }
+      { icon: 'github', link: 'https://github.com/js0205/my-notes' }
     ]
   }
 } 
