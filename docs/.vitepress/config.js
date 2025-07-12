@@ -18,11 +18,25 @@ export default {
         ]
       },
       {
-        text: '💻 文件格式转换',
+        text: '🔄 文件格式转换',
         collapsed: false,
         items: [
           { text: '图片压缩', link: '/conversion/image-compression' },
           { text: '视频', link: '/conversion/video' },
+        ]
+      },
+      {
+        text: '⚡ 服务端',
+        collapsed: false,
+        items: [
+          { text: 'nodejs', link: '/server/nodejs' },
+        ]
+      },
+      {
+        text: '🌐 SSR',
+        collapsed: false,
+        items: [
+          { text: 'ssr', link: '/ssr/ssr' },
         ]
       }
     ],
