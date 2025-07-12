@@ -22,9 +22,15 @@
 
 ![CLS 良好值](https://web.dev/static/articles/cls/image/good-cls-values.svg?hl=zh-cn)
 
-### 累积布局偏移SI
+### 速度指数SI
 
 ### INP
 
 替代FID
 ![INP 良好值](https://web.dev/static/articles/inp/image/inp-desktop-v2.svg?hl=zh-cn)
+
+## 其他性能指标
+
+### 自定义首屏时长CFPT
+
+定义：
