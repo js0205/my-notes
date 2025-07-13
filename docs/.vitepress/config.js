@@ -54,6 +54,7 @@ export default {
           { text: 'BFF', link: '/tech-stack/bff' },
           { text: 'Egg', link: '/tech-stack/egg' },
           { text: 'Koa', link: '/tech-stack/koa' },
+          { text: 'San', link: '/tech-stack/san' },
           { text: 'Cocos渲染', link: '/tech-stack/cocos-render' },
           { text: '微前端', link: '/tech-stack/microfrontend' },
           { text: 'WebAssembly', link: '/tech-stack/webassembly' },
