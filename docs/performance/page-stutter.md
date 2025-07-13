@@ -13,3 +13,7 @@ UI 阻塞
 ## 事件循环和浏览器渲染的先后顺序
 
 ![事件循环和浏览器渲染的先后顺序](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/12/26/16f42173b5561c72~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+
+![事件循环详细流程图](https://developer.qcloudimg.com/http-save/yehe-2820638/d179a88bf29b38a4334a80d958cf1493.png)
+
+> 如果上面的图片无法显示，这可能是网络问题。图片展示了事件循环的详细流程，包括宏任务、微任务的执行顺序和浏览器渲染的时机。
