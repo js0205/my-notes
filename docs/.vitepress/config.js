@@ -17,12 +17,12 @@ export default {
             { text: '离线包', link: '/performance/offline-package' },
             { text: '页面卡顿', link: '/performance/page-stutter' },
             { text: '白屏', link: '/performance/white-screen' },
-            { text: '大纲', link: '/performance/outline' }
+            { text: '性能优化通用思路', link: '/performance/outline' }
         ]
       },
       {
         text: '🔄 文件格式转换',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: '图片压缩', link: '/conversion/image-compression' },
           { text: '视频', link: '/conversion/video' },
@@ -32,7 +32,7 @@ export default {
       },
       {
         text: '📦 打包工具',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Rspack', link: '/pack/rspack' },
           { text: 'Vite', link: '/pack/vite' },
@@ -40,8 +40,15 @@ export default {
         ]
       },
       {
-        text: '🔧 技术栈',
+        text: '💡面试题',
         collapsed: false,
+        items: [
+          { text: '面试题', link: '/interview/interview' },
+        ]
+      },
+      {
+        text: '🔧 技术栈',
+        collapsed: true,
         items: [
           { text: 'Node.js', link: '/tech-stack/nodejs' },
           { text: 'BFF', link: '/tech-stack/bff' },
@@ -55,14 +62,14 @@ export default {
       },
       {
         text: '🌐 SSR',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'ssr', link: '/ssr/ssr' },
         ]
       },
       {
         text: '🤖 AiCoding',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'D2C', link: '/aicoding/d2c' },
           { text: 'SSE', link: '/aicoding/sse' },
