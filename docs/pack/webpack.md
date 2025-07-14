@@ -1,1 +1,17 @@
 # Webpack
+
+## webpack流程
+
+初始化配置->从入口模块开始解析->经过loader处理->遍历ast->找到依赖->继续解析依赖，直到所有子模块都解析完成->优化chunk->生成assets->根据assets生成最终的产物
+
+## webpack的插件机制
+
+webpack的插件机制，基于tapable实现，而tapable提供了多类型的hook，比如：同步串行hook、异步并行hook。
+webpack提供的hook目前有5类，第一类是compiler上的hook，这类hook是大流程上的节点；第二类compilation上的hook，这类hook是构建模块实例、优化chunk等流程上的节点，第三类normalModuleFactory上的hook，这类hook是模块创建、查找模块等流程上的节点，第四类是javascriptParser上的hook，这类hook就是遍历ast流程上的节点，第五类是ContextModuleFactory上的hook，与normalModuleFactory上的hook类似，但是用得少
+最后一个插件以apply方法作为入口函数，入口函数会接受一个compiler参数，接下来就是根据webpack在compiler，compilation等对象上爆料的hooks上注册callback，在callback内完成拓展功能
+
+## 写过webpack插件
+
+写过约定式路由插件，目的是解决手写routes配置文件，做到自动生成routes文件，提高开发效率。
+为了使生成routes文件生效，我选择在webpack编译之前的hooks内完成routes文件的生成，而编译之前的hooks有enviroment、initialize等hook，我选择initialize hook，这是一个同步串行hook
+最后在initialize hook上注册callback，在callback内读取目录及相关配置，生成路由配置文件

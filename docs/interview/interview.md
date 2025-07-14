@@ -40,3 +40,11 @@ diff算法不同。react主要使用diff队列保存需要更新哪些DOM，得�
 [策略模式详解](https://vue3js.cn/interview/design/Strategy%20Pattern.html#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8)
 
 ## Nodejs的事件循环
+
+
+## 如何设计一个组件库
+
+### 设计原则
+
+1. 细粒度
+2. 通用性
