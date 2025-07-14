@@ -40,10 +40,11 @@ export default {
         ]
       },
       {
-        text: '💡面试题',
+        text: '💡 面试题',
         collapsed: false,
         items: [
-          { text: '面试题', link: '/interview/interview' },
+          { text: '面试题汇总', link: '/interview/interview' },
+          { text: 'React面试题', link: '/interview/react' },
         ]
       },
       {
@@ -62,10 +63,11 @@ export default {
         ]
       },
       {
-        text: '🌐 SSR',
+        text: '🌐 渲染技术',
         collapsed: true,
         items: [
-          { text: 'ssr', link: '/ssr/ssr' },
+          { text: 'SSR', link: '/render/ssr' },
+          { text: 'ESR', link: '/render/esr' },
         ]
       },
       {
