@@ -77,6 +77,13 @@ export default {
           { text: 'D2C', link: '/aicoding/d2c' },
           { text: 'SSE', link: '/aicoding/sse' },
         ]
+      },
+      {
+        text: '📚 第三方库',
+        collapsed: true,
+        items: [
+          { text: '第三方库汇总', link: '/npm/third-party-libs' },
+        ]
       }
     ],
     socialLinks: [

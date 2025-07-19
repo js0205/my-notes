@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>级联选择器组件测试</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .demo-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .cascade-selector {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .cascade-selector select,
+        .cascade-selector button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 120px;
+        }
+
+        .cascade-selector button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .cascade-selector button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-panel {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 15px;
+            min-height: 100px;
+        }
+
+        .result-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+
+        .result-item {
+            padding: 5px 0;
+            border-bottom: 1px dashed #dee2e6;
+            color: #6c757d;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .control-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .control-panel button {
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #6c757d;
+            color: white;
+            cursor: pointer;
+        }
+
+        .control-panel button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 style="text-align: center; color: #333;">级联选择器组件测试</h1>
+        
+        <!-- 原始实现 -->
+        <div class="demo-section">
+            <div class="demo-title">原始实现（基础版本）</div>
+            <div class="container">
+                <select id="firstSelect">
+                    <option value="">请选择</option>
+                    <option value="1">类型1</option>
+                    <option value="2">类型2</option>
+                    <option value="3">类型3</option>
+                </select>
+                <select id="secondSelect">
+                    <option value="">请选择一级选项</option>
+                </select>
+                <button id="searchBtn">搜索</button>
+            </div>
+            <div class="result-panel">
+                <div class="result-title">操作结果：</div>
+                <div id="originalResult"></div>
+            </div>
+        </div>
+
+        <!-- Class组件实现 -->
+        <div class="demo-section">
+            <div class="demo-title">ES6 Class组件实现</div>
+            <div id="container1"></div>
+            <div class="result-panel">
+                <div class="result-title">操作结果：</div>
+                <div id="classResult"></div>
+            </div>
+            <div class="control-panel">
+                <button onclick="updateClassData()">更新数据</button>
+                <button onclick="setClassValue()">设置值</button>
+                <button onclick="getClassValue()">获取值</button>
+            </div>
+        </div>
+
+        <!-- 函数式组件实现 -->
+        <div class="demo-section">
+            <div class="demo-title">函数式组件实现</div>
+            <div id="container2"></div>
+            <div class="result-panel">
+                <div class="result-title">操作结果：</div>
+                <div id="functionResult"></div>
+            </div>
+            <div class="control-panel">
+                <button onclick="updateFunctionData()">更新数据</button>
+                <button onclick="setFunctionValue()">设置值</button>
+                <button onclick="getFunctionValue()">获取值</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 原始实现代码
+        const secondOption = {
+            '1': ['1-1', '1-2', '1-3'],
+            '2': ['2-1', '2-2', '2-3'],
+            '3': ['3-1', '3-2', '3-3'],
+        };
+
+        const firstSelect = document.querySelector('#firstSelect');
+        const secondSelect = document.querySelector('#secondSelect');
+        const searchBtn = document.querySelector('#searchBtn');
+        const originalResult = document.querySelector('#originalResult');
+
+        firstSelect.addEventListener('change', () => {
+            const selectedValue = firstSelect.value;
+            secondSelect.innerHTML = '<option value="">请选择二级选项</option>';
+            if (selectedValue && secondOption[selectedValue]) {
+                secondOption[selectedValue].forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
+                    secondSelect.appendChild(option);
+                });
+            }
+            originalResult.innerHTML += `<div class="result-item">一级选项变更: ${selectedValue}</div>`;
+        });
+
+        searchBtn.addEventListener('click', () => {
+            const firstValue = firstSelect.value;
+            const secondValue = secondSelect.value;
+            originalResult.innerHTML += `<div class="result-item">搜索 - 一级：${firstValue}，二级：${secondValue}</div>`;
+        });
+
+        // ES6 Class组件
+        class CascadeSelector {
+            constructor(container, options = {}) {
+                this.container = typeof container === 'string' ? document.querySelector(container) : container;
+                this.options = {
+                    data: {},
+                    firstPlaceholder: '请选择',
+                    secondPlaceholder: '请先选择一级选项',
+                    searchText: '搜索',
+                    onChange: null,
+                    onSearch: null,
+                    ...options
+                };
+                this.init();
+            }
+
+            init() {
+                this.render();
+                this.bindEvents();
+            }
+
+            render() {
+                this.container.innerHTML = `
+                    <div class="cascade-selector">
+                        <select class="first-select">
+                            <option value="">${this.options.firstPlaceholder}</option>
+                            ${this.renderFirstOptions()}
+                        </select>
+                        <select class="second-select">
+                            <option value="">${this.options.secondPlaceholder}</option>
+                        </select>
+                        <button class="search-btn">${this.options.searchText}</button>
+                    </div>
+                `;
+                this.firstSelect = this.container.querySelector('.first-select');
+                this.secondSelect = this.container.querySelector('.second-select');
+                this.searchBtn = this.container.querySelector('.search-btn');
+            }
+
+            renderFirstOptions() {
+                return Object.keys(this.options.data).map(key => 
+                    `<option value="${key}">${key}</option>`
+                ).join('');
+            }
+
+            bindEvents() {
+                this.firstSelect.addEventListener('change', (e) => {
+                    this.updateSecondSelect(e.target.value);
+                    this.triggerChange();
+                });
+
+                this.secondSelect.addEventListener('change', () => {
+                    this.triggerChange();
+                });
+
+                this.searchBtn.addEventListener('click', () => {
+                    this.triggerSearch();
+                });
+            }
+
+            updateSecondSelect(firstValue) {
+                this.secondSelect.innerHTML = `<option value="">${this.options.secondPlaceholder}</option>`;
+                
+                if (firstValue && this.options.data[firstValue]) {
+                    this.options.data[firstValue].forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item;
+                        option.textContent = item;
+                        this.secondSelect.appendChild(option);
+                    });
+                }
+            }
+
+            triggerChange() {
+                if (this.options.onChange) {
+                    this.options.onChange(this.getValue());
+                }
+            }
+
+            triggerSearch() {
+                if (this.options.onSearch) {
+                    this.options.onSearch(this.getValue());
+                }
+            }
+
+            getValue() {
+                return {
+                    first: this.firstSelect.value,
+                    second: this.secondSelect.value
+                };
+            }
+
+            setValue(first, second) {
+                this.firstSelect.value = first || '';
+                this.updateSecondSelect(first);
+                if (second) {
+                    this.secondSelect.value = second;
+                }
+            }
+
+            updateData(newData) {
+                this.options.data = newData;
+                this.render();
+                this.bindEvents();
+            }
+        }
+
+        // 函数式组件
+        function createCascadeSelector(container, options = {}) {
+            const config = {
+                data: {},
+                firstPlaceholder: '请选择',
+                secondPlaceholder: '请先选择一级选项',
+                searchText: '搜索',
+                onChange: null,
+                onSearch: null,
+                ...options
+            };
+
+            const containerEl = typeof container === 'string' ? document.querySelector(container) : container;
+            let firstSelect, secondSelect, searchBtn;
+
+            function render() {
+                containerEl.innerHTML = `
+                    <div class="cascade-selector">
+                        <select class="first-select">
+                            <option value="">${config.firstPlaceholder}</option>
+                            ${Object.keys(config.data).map(key => 
+                                `<option value="${key}">${key}</option>`
+                            ).join('')}
+                        </select>
+                        <select class="second-select">
+                            <option value="">${config.secondPlaceholder}</option>
+                        </select>
+                        <button class="search-btn">${config.searchText}</button>
+                    </div>
+                `;
+                
+                firstSelect = containerEl.querySelector('.first-select');
+                secondSelect = containerEl.querySelector('.second-select');
+                searchBtn = containerEl.querySelector('.search-btn');
+                
+                bindEvents();
+            }
+
+            function bindEvents() {
+                firstSelect.addEventListener('change', handleFirstChange);
+                secondSelect.addEventListener('change', handleSecondChange);
+                searchBtn.addEventListener('click', handleSearch);
+            }
+
+            function handleFirstChange(e) {
+                updateSecondSelect(e.target.value);
+                if (config.onChange) config.onChange(getValue());
+            }
+
+            function handleSecondChange() {
+                if (config.onChange) config.onChange(getValue());
+            }
+
+            function handleSearch() {
+                if (config.onSearch) config.onSearch(getValue());
+            }
+
+            function updateSecondSelect(firstValue) {
+                secondSelect.innerHTML = `<option value="">${config.secondPlaceholder}</option>`;
+                
+                if (firstValue && config.data[firstValue]) {
+                    config.data[firstValue].forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item;
+                        option.textContent = item;
+                        secondSelect.appendChild(option);
+                    });
+                }
+            }
+
+            function getValue() {
+                return {
+                    first: firstSelect?.value || '',
+                    second: secondSelect?.value || ''
+                };
+            }
+
+            function setValue(first, second) {
+                if (firstSelect) {
+                    firstSelect.value = first || '';
+                    updateSecondSelect(first);
+                    if (second && secondSelect) {
+                        secondSelect.value = second;
+                    }
+                }
+            }
+
+            function updateData(newData) {
+                config.data = newData;
+                render();
+            }
+
+            // 初始化
+            render();
+
+            // 返回公共API
+            return {
+                getValue,
+                setValue,
+                updateData,
+                destroy: () => containerEl.innerHTML = ''
+            };
+        }
+
+        // 初始化组件实例
+        const classResult = document.querySelector('#classResult');
+        const functionResult = document.querySelector('#functionResult');
+
+        // Class方式使用
+        const selector1 = new CascadeSelector('#container1', {
+            data: {
+                '技术类': ['前端开发', '后端开发', '移动开发'],
+                '产品类': ['产品经理', 'UI设计', 'UX设计'],
+                '运营类': ['内容运营', '用户运营', '数据运营']
+            },
+            onChange: (value) => {
+                classResult.innerHTML += `<div class="result-item">选择变化: ${JSON.stringify(value)}</div>`;
+            },
+            onSearch: (value) => {
+                classResult.innerHTML += `<div class="result-item">执行搜索: ${JSON.stringify(value)}</div>`;
+            }
+        });
+
+        // 函数方式使用
+        const selector2 = createCascadeSelector('#container2', {
+            data: {
+                '一线城市': ['北京', '上海', '广州', '深圳'],
+                '新一线': ['杭州', '成都', '重庆', '武汉'],
+                '二线城市': ['青岛', '大连', '厦门', '西安']
+            },
+            onChange: (value) => {
+                functionResult.innerHTML += `<div class="result-item">选择变化: ${JSON.stringify(value)}</div>`;
+            },
+            onSearch: (value) => {
+                functionResult.innerHTML += `<div class="result-item">执行搜索: ${JSON.stringify(value)}</div>`;
+            }
+        });
+
+        // 控制面板功能
+        function updateClassData() {
+            const newData = {
+                '编程语言': ['JavaScript', 'Python', 'Java'],
+                '框架工具': ['React', 'Vue', 'Angular'],
+                '数据库': ['MySQL', 'MongoDB', 'Redis']
+            };
+            selector1.updateData(newData);
+            classResult.innerHTML += `<div class="result-item">数据已更新</div>`;
+        }
+
+        function setClassValue() {
+            selector1.setValue('编程语言', 'JavaScript');
+            classResult.innerHTML += `<div class="result-item">值已设置: 编程语言 -> JavaScript</div>`;
+        }
+
+        function getClassValue() {
+            const value = selector1.getValue();
+            classResult.innerHTML += `<div class="result-item">当前值: ${JSON.stringify(value)}</div>`;
+        }
+
+        function updateFunctionData() {
+            const newData = {
+                '互联网': ['阿里巴巴', '腾讯', '字节跳动'],
+                '金融': ['工商银行', '建设银行', '平安银行'],
+                '制造业': ['华为', '小米', '比亚迪']
+            };
+            selector2.updateData(newData);
+            functionResult.innerHTML += `<div class="result-item">数据已更新</div>`;
+        }
+
+        function setFunctionValue() {
+            selector2.setValue('互联网', '腾讯');
+            functionResult.innerHTML += `<div class="result-item">值已设置: 互联网 -> 腾讯</div>`;
+        }
+
+        function getFunctionValue() {
+            const value = selector2.getValue();
+            functionResult.innerHTML += `<div class="result-item">当前值: ${JSON.stringify(value)}</div>`;
+        }
+    </script>
+</body>
+</html> 
