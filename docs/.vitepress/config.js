@@ -82,7 +82,7 @@ export default {
         text: '📚 第三方库',
         collapsed: true,
         items: [
-          { text: '第三方库汇总', link: '/npm/third-party-libs' },
+          { text: 'TS编译相关库', link: '/libs/ts-libs' },
         ]
       }
     ],
