@@ -37,6 +37,7 @@ export default {
           { text: 'Rspack', link: '/pack/rspack' },
           { text: 'Vite', link: '/pack/vite' },
           { text: 'Webpack', link: '/pack/webpack' },
+          { text: '编译', link: '/pack/compile' },
         ]
       },
       {
