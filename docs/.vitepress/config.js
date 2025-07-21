@@ -45,9 +45,9 @@ export default {
         collapsed: false,
         items: [
           { text: '面试题汇总', link: '/interview/interview' },
-          { text: 'React面试题', link: '/interview/react' },
-          { text: 'i18n国际化面试题', link: '/interview/i18n' },
-          { text: 'l10n本地化面试题', link: '/interview/l10n' },
+          { text: 'React', link: '/interview/react' },
+          { text: 'i18n国际化', link: '/interview/i18n' },
+          { text: 'l10n本地化', link: '/interview/l10n' },
         ]
       },
       {
