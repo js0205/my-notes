@@ -1,11 +1,20 @@
 export default {
-  title: '我的笔记',
-  description: '个人知识库，基于 VitePress 构建',
-  base: '/my-notes/', // GitHub Pages 仓库名
+  title: '🚀 我的笔记',
+  description: '个人知识库，基于 VitePress 构建 | 精美的技术文档站点',
+  base: '/my-notes/',
+  head: [
+    ['meta', { name: 'theme-color', content: '#3b82f6' }],
+    ['meta', { name: 'og:type', content: 'website' }],
+    ['meta', { name: 'og:title', content: '我的笔记 - 个人知识库' }],
+    ['meta', { name: 'og:description', content: '个人知识库，基于 VitePress 构建 | 精美的技术文档站点' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+  ],
   
   themeConfig: {
     nav: [
-      { text: '首页', link: '/performance/performance' }
+      { text: '🏠 首页', link: '/performance/performance' },
+      { text: '📚 文档', link: '/interview/interview' },
+      { text: '🚀 性能', link: '/performance/performance' }
     ],
     sidebar: [
       {
@@ -69,8 +78,7 @@ export default {
         text: '🌐 渲染技术',
         collapsed: true,
         items: [
-          { text: 'SSR', link: '/render/ssr' },
-          { text: 'ESR', link: '/render/esr' },
+          { text: 'SSR', link: '/ssr/ssr' }
         ]
       },
       {
@@ -91,6 +99,39 @@ export default {
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/js0205/my-notes' }
-    ]
+    ],
+    
+    footer: {
+      message: '基于 VitePress 构建',
+      copyright: 'Copyright © 2024 我的笔记'
+    },
+    
+    editLink: {
+      pattern: 'https://github.com/js0205/my-notes/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页'
+    },
+    
+    lastUpdated: {
+      text: '最后更新时间',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      }
+    },
+    
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    
+    outline: {
+      label: '页面导航'
+    },
+    
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式'
   }
 } 
