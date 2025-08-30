@@ -1,6 +1,6 @@
 export default {
-  title: '🚀 我的笔记',
-  description: '个人知识库，基于 VitePress 构建 | 精美的技术文档站点',
+  title: 'TechVault',
+  description: '个人技术知识库，基于 VitePress 构建 | 精美的技术文档站点',
   base: '/my-notes/',
   head: [
     ['meta', { name: 'theme-color', content: '#3b82f6' }],
@@ -12,14 +12,14 @@ export default {
   
   themeConfig: {
     nav: [
-      { text: '🏠 首页', link: '/performance/performance' },
-      { text: '📚 文档', link: '/interview/interview' },
-      { text: '🚀 性能', link: '/performance/performance' }
+      { text: '首页', link: '/performance/performance' },
+      { text: '文档', link: '/interview/interview' },
+      { text: '性能', link: '/performance/performance' }
     ],
     sidebar: [
       {
-        text: '🚀 性能优化',
-        collapsed: false,
+        text: '性能优化',
+        collapsed: true,
         items: [
             { text: '性能指标', link: '/performance/performance' },
             { text: '低端机降级', link: '/performance/low-end-machine-downgrade' },
@@ -30,17 +30,16 @@ export default {
         ]
       },
       {
-        text: '🔄 文件格式转换',
+        text: '文件格式转换',
         collapsed: true,
         items: [
           { text: '图片压缩', link: '/conversion/image-compression' },
-          { text: '视频', link: '/conversion/video' },
           { text: 'PDF预览', link: '/conversion/pdf-preview' },
           { text: 'iframe', link: '/conversion/iframe' }
         ]
       },
       {
-        text: '📦 打包工具',
+        text: '打包工具',
         collapsed: true,
         items: [
           { text: 'Rspack', link: '/pack/rspack' },
@@ -50,8 +49,8 @@ export default {
         ]
       },
       {
-        text: '💡 面试题',
-        collapsed: false,
+        text: '面试题',
+        collapsed: true,
         items: [
           { text: '面试题汇总', link: '/interview/interview' },
           { text: 'React', link: '/interview/react' },
@@ -60,7 +59,7 @@ export default {
         ]
       },
       {
-        text: '🔧 技术栈',
+        text: '技术栈',
         collapsed: true,
         items: [
           { text: 'Node.js', link: '/tech-stack/nodejs' },
@@ -75,14 +74,14 @@ export default {
         ]
       },
       {
-        text: '🌐 渲染技术',
+        text: '渲染技术',
         collapsed: true,
         items: [
           { text: 'SSR', link: '/ssr/ssr' }
         ]
       },
       {
-        text: '🤖 AiCoding',
+        text: 'AiCoding',
         collapsed: true,
         items: [
           { text: 'D2C', link: '/aicoding/d2c' },
@@ -90,10 +89,17 @@ export default {
         ]
       },
       {
-        text: '📚 第三方库',
+        text: '第三方库',
         collapsed: true,
         items: [
           { text: 'TS编译相关库', link: '/libs/ts-libs' },
+        ]
+      },
+      {
+        text: '设计模式',
+        collapsed: true,
+        items: [
+          { text: '策略模式', link: '/pattern/pattern' }
         ]
       }
     ],

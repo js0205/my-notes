@@ -2,12 +2,11 @@
 layout: home
 
 hero:
-  name: "我的笔记"
+  name: "TechVault"
   text: "个人技术知识库"
-  tagline: "记录学习，分享成长 🚀"
   image:
     src: /logo.svg
-    alt: 我的笔记
+    alt: TechVault
   actions:
     - theme: brand
       text: 开始阅读
