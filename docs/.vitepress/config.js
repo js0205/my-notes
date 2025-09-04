@@ -12,9 +12,9 @@ export default {
   
   themeConfig: {
     nav: [
-      { text: '首页', link: '/performance/performance' },
-      { text: '文档', link: '/interview/interview' },
-      { text: '性能', link: '/performance/performance' }
+      { text: '首页', link: '/index' },
+      { text: '面试题', link: '/interview/interview' },
+      { text: '性能优化', link: '/performance/performance' }
     ],
     sidebar: [
       {
@@ -35,7 +35,8 @@ export default {
         items: [
           { text: '图片压缩', link: '/conversion/image-compression' },
           { text: 'PDF预览', link: '/conversion/pdf-preview' },
-          { text: 'iframe', link: '/conversion/iframe' }
+          { text: 'iframe', link: '/conversion/iframe' },
+          { text: '视频处理', link: '/conversion/video' }
         ]
       },
       {
@@ -54,7 +55,8 @@ export default {
         items: [
           { text: '面试题汇总', link: '/interview/interview' },
           { text: 'React', link: '/interview/react' },
-          { text: 'i18n国际化', link: '/interview/i18n' },
+          { text: '稳定性接入', link: '/interview/stability' },
+          { text: 'i18n国际化资源', link: '/interview/i18n' },
           { text: 'l10n本地化', link: '/interview/l10n' },
         ]
       },
@@ -77,15 +79,25 @@ export default {
         text: '渲染技术',
         collapsed: true,
         items: [
-          { text: 'SSR', link: '/ssr/ssr' }
+          { text: 'SSR', link: '/render/ssr' },
+          { text: 'CSR', link: '/render/csr' },
+          { text: 'ER', link: '/render/er' }
         ]
       },
       {
         text: 'AiCoding',
         collapsed: true,
         items: [
+          { text: 'Agent', link: '/aicoding/agent' },
           { text: 'D2C', link: '/aicoding/d2c' },
           { text: 'SSE', link: '/aicoding/sse' },
+        ]
+      },
+      {
+        text: '练习',
+        collapsed: true,
+        items: [
+          { text: '选择器', link: '/exercise/select' },
         ]
       },
       {
@@ -101,6 +113,20 @@ export default {
         items: [
           { text: '策略模式', link: '/pattern/pattern' }
         ]
+      },
+      {
+        text: '系统设计',
+        collapsed: true,
+        items: [
+          { text: '系统设计', link: '/system/system-design' }
+        ]
+      },
+      {
+        text: 'API设计',
+        collapsed: true,
+        items: [
+          { text: 'GraphQL', link: '/api/GraphQL' }
+        ]
       }
     ],
     socialLinks: [
@@ -109,7 +135,7 @@ export default {
     
     footer: {
       message: '基于 VitePress 构建',
-      copyright: 'Copyright © 2024 我的笔记'
+      copyright: 'Copyright © 2025 我的笔记'
     },
     
     editLink: {

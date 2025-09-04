@@ -22,22 +22,22 @@ webpack提供的hook目前有5类，第一类是compiler上的hook，这类hook�
 
 **webpack.config.js 运行速度更快**，主要原因如下：
 
-1. **直接执行 vs 编译执行**
+**1. 直接执行 vs 编译执行**
    - `webpack.config.js`：Node.js 可以直接执行，无需额外编译步骤
    - `webpack.config.ts`：需要先通过 TypeScript 编译器（tsc）或 ts-node 将 TypeScript 代码编译/转换为 JavaScript，然后再执行
 
-2. **启动时间差异**
+**2. 启动时间差异**
    - `webpack.config.js`：启动时直接加载配置文件
    - `webpack.config.ts`：启动时需要先初始化 TypeScript 编译环境，包括：
      - 加载 TypeScript 编译器
      - 解析 tsconfig.json 配置
      - 执行类型检查和编译转换
 
-3. **内存占用**
+**3. 内存占用**
    - `webpack.config.js`：内存占用相对较少
    - `webpack.config.ts`：需要额外的 TypeScript 运行时环境，内存占用更高
 
-4. **开发体验权衡**
+**4. 开发体验权衡**
    - 虽然 `.ts` 配置启动稍慢，但提供了：
      - 类型安全，减少配置错误
      - 更好的 IDE 支持和智能提示

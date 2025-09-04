@@ -14,4 +14,18 @@ UI 阻塞
 
 ![事件循环和浏览器渲染的先后顺序](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/12/26/16f42173b5561c72~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
 
-![事件循环详细流程图](https://developer.qcloudimg.com/http-save/yehe-2820638/d179a88bf29b38a4334a80d958cf1493.png)
+## 事件循环详细流程
+
+事件循环是 JavaScript 异步编程的核心机制，它决定了代码的执行顺序：
+
+### 执行顺序
+1. **同步代码执行** - 立即执行
+2. **微任务队列** - Promise.then、queueMicrotask 等
+3. **宏任务队列** - setTimeout、setInterval、I/O 操作等
+4. **浏览器渲染** - 重排、重绘、合成
+
+### 关键特点
+- 微任务优先级高于宏任务
+- 每个宏任务执行完后，会清空所有微任务
+- 浏览器渲染在宏任务之间进行
+- 长时间运行的 JS 会阻塞渲染
